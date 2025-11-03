@@ -1,164 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Login — Hola Mundo Colorido</title>
-  <style>
-    :root{
-      --bg:#0f172a;
-      --card:#0b1220;
-      --accent1:#ff5f6d;
-      --accent2:#ffc371;
-      --accent3:#7afcff;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#071226 0%, #081024 50%, #0b1220 100%);font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
-
-    /* Card */
-    .card{width:360px;max-width:92vw;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border-radius:16px;padding:28px 22px;color:#e6eef8;box-shadow:0 10px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
-    h2{margin:0 0 10px;font-size:20px}
-    p.sub{margin:0 0 18px;color:rgba(230,238,248,0.7);font-size:13px}
-
-    label{display:block;font-size:13px;margin-bottom:6px}
-    input[type=text],input[type=password]{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));color:inherit;font-size:14px}
-    .row{gap:10px;display:flex}
-    button{margin-top:14px;width:100%;padding:12px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#071226;font-weight:700;cursor:pointer;font-size:15px;box-shadow:0 6px 20px rgba(255,95,109,0.12)}
-
-    .hint{font-size:12px;color:rgba(230,238,248,0.6);margin-top:8px}
-    .error{color:#ffb4c0;margin-top:8px;font-size:13px}
-
-    /* Shake for wrong creds */
-    .shake{animation:shake 520ms cubic-bezier(.36,.07,.19,.97) }
-    @keyframes shake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
-
-    /* Fullscreen stage */
-    .stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;visibility:hidden;opacity:0;transition:opacity .6s ease, visibility .01s .6s}
-    .stage.show{visibility:visible;opacity:1;transition:opacity .6s ease}
-
-    /* Colorful Hola Mundo */
-    .hola-wrap{position:relative;padding:30px;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
-    .hola{
-      font-size:clamp(36px,9vw,96px);
-      font-weight:900;
-      line-height:0.9;
-      letter-spacing:-2px;
-      background:linear-gradient(60deg,var(--accent1),var(--accent3),var(--accent2));
-      -webkit-background-clip:text;background-clip:text;color:transparent;
-      animation:floatText 6s ease-in-out infinite, hue 12s linear infinite;
-      text-align:center;
-      text-shadow:0 6px 30px rgba(10,12,24,0.6);
-    }
-    @keyframes floatText{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-    @keyframes hue{0%{filter:hue-rotate(0deg)}50%{filter:hue-rotate(60deg)}100%{filter:hue-rotate(0deg)}}
-
-    /* Floating shapes */
-    .confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-    .confetti i{position:absolute;display:block;width:12px;height:12px;transform:rotate(45deg);opacity:0.95;border-radius:2px;animation:drop linear infinite}
-    @keyframes drop{0%{transform:translateY(-20vh) rotateZ(0) scale(1)}100%{transform:translateY(120vh) rotateZ(720deg) scale(.85)}}
-
-    /* small subtitle */
-    .subtxt{font-size:18px;color:rgba(230,238,248,0.85)}
-
-    /* Responsive tweaks */
-    @media (max-width:520px){.card{padding:20px}}
-  </style>
+  <meta charset="UTF-8">
+  <title>Página Principal</title>
 </head>
-<body>
-  <div class="card" id="loginCard">
-    <h2>Iniciar sesión</h2>
-    <p class="sub">Ingresa usuario y contraseña para ver el saludo colorido.</p>
+<body bgcolor="#20232a" text="#ffffff" link="#61dafb" vlink="#9eeaff" alink="#ffa500">
+  <center>
+    <h1>🌐 Ejercicios de HTML</h1>
+    <hr size="2" color="#61dafb" width="80%">
+    <p><b>Selecciona una página para explorar:</b></p>
 
-    <div>
-      <label for="user">Usuario</label>
-      <input id="user" type="text" placeholder="Usuario" autocomplete="username">
-    </div>
+    <table border="1" cellpadding="10" cellspacing="0" bgcolor="#2b2f3a">
+      <tr><td><a href="pagina 1.html">📘 Página 1 - Biografía y Habilidades</a></td></tr>
+      <tr><td><a href="pagina 2.html">📸 Página 2 - Galería de Imágenes</a></td></tr>
+      <tr><td><a href="pagina 3.html">📰 Página 3 - Artículos</a></td></tr>
+      <tr><td><a href="pagina 4.html">💼 Página 4 - Proyecto</a></td></tr>
+      <tr><td><a href="pagina 5.html">📚 Página 5 - Mis Libros Favoritos</a></td></tr>
+    </table>
 
-    <div style="margin-top:12px">
-      <label for="pass">Contraseña</label>
-      <input id="pass" type="password" placeholder="Contraseña" autocomplete="current-password">
-    </div>
-
-    <button id="loginBtn">Entrar</button>
-    <div class="hint">Pista: usuario <strong>wasd</strong> — contraseña <strong>1234</strong></div>
-    <div id="error" class="error" role="status" aria-live="polite" style="display:none"></div>
-  </div>
-
-  <!-- Stage: Hola Mundo -->
-  <div class="stage" id="stage">
-    <div class="hola-wrap">
-      <div class="confetti" id="confetti" aria-hidden="true"></div>
-      <div class="hola">¡Hola Mundo!</div>
-      <div class="subtxt">Bienvenido — sesión iniciada</div>
-      <button id="resetBtn" style="width:auto;padding:10px 16px;border-radius:10px;background:rgba(255,255,255,0.08);color:#e8f0ff;border:1px solid rgba(255,255,255,0.04);cursor:pointer">Cerrar</button>
-    </div>
-  </div>
-
-  <script>
-    const correctUser = 'wasd';
-    const correctPass = '1234';
-    const userInput = document.getElementById('user');
-    const passInput = document.getElementById('pass');
-    const btn = document.getElementById('loginBtn');
-    const err = document.getElementById('error');
-    const card = document.getElementById('loginCard');
-    const stage = document.getElementById('stage');
-    const reset = document.getElementById('resetBtn');
-
-    function showError(msg){
-      err.textContent = msg; err.style.display = 'block';
-      card.classList.remove('shake');
-      // restart animation
-      void card.offsetWidth;
-      card.classList.add('shake');
-    }
-
-    btn.addEventListener('click', tryLogin);
-    [userInput, passInput].forEach(i=> i.addEventListener('keydown', e=>{ if(e.key==='Enter') tryLogin(); }))
-
-    function tryLogin(){
-      const u = userInput.value.trim();
-      const p = passInput.value;
-      err.style.display='none';
-      if(u === correctUser && p === correctPass){
-        // success
-        card.style.transform = 'scale(.98)';
-        card.style.transition = 'all .35s ease';
-        setTimeout(()=>{ card.style.opacity = '0'; card.style.transform='scale(.96)'; }, 150);
-        setTimeout(()=>{ card.style.display = 'none'; stage.classList.add('show'); createConfetti(28); }, 500);
-      } else {
-        showError('Usuario o contraseña incorrectos. Intenta de nuevo.');
-      }
-    }
-
-    reset.addEventListener('click', ()=>{
-      // go back to login
-      stage.classList.remove('show');
-      setTimeout(()=>{ card.style.display='block'; card.style.opacity='1'; card.style.transform='none'; err.style.display='none'; userInput.focus(); }, 400);
-    });
-
-    // Create confetti pieces
-    function rnd(min,max){ return Math.random()*(max-min)+min }
-    function createConfetti(n){
-      const cont = document.getElementById('confetti');
-      cont.innerHTML='';
-      for(let i=0;i<n;i++){
-        const el = document.createElement('i');
-        const size = Math.round(rnd(8,18));
-        el.style.width = size+'px'; el.style.height = size+'px';
-        el.style.left = rnd(-10,100)+'%';
-        el.style.top = rnd(-40,10)+'%';
-        el.style.background = `hsl(${Math.round(rnd(0,360))}deg ${Math.round(rnd(60,90))}% ${Math.round(rnd(50,65))}%)`;
-        el.style.opacity = rnd(0.8,1);
-        el.style.transform = `rotate(${rnd(0,360)}deg)`;
-        el.style.animationDuration = rnd(3.5,7)+'s';
-        el.style.animationDelay = rnd(0,1.2)+'s';
-        cont.appendChild(el);
-      }
-    }
-
-    // autofocus
-    userInput.focus();
-  </script>
+    <br><hr size="2" color="#61dafb" width="60%">
+    <small>Creado por Eduardo Aranda - 2025</small>
+  </center>
 </body>
 </html>
